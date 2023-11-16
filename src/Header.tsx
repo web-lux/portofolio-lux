@@ -1,3 +1,5 @@
+import './header.scss'
+
 function Header() {
     return (
         <header>
@@ -6,7 +8,7 @@ function Header() {
                     <li><a href="">Compétences</a></li>
                     <li><a href="">Portofolio</a></li>
                     <li><a href="">Parcours</a></li>
-                    <li><a href="">Me contacter</a></li>
+                    <li><a href="" className='btn'>Me contacter</a></li>
                 </ul>
             </nav>
         </header>
