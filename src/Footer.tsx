@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <p>Footer</p>
+            <p>Copyright © web-lux 2023</p>
         </footer>
     )
 }
