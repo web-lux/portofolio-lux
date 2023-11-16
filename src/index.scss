@@ -20,6 +20,7 @@ a {
 	text-decoration: none;
 	// forbid color change if link visited
 	color: inherit;
+	cursor: pointer;
 }
 
 :root {
@@ -51,4 +52,18 @@ a {
 	background-color: var(--tertiary);
 	padding: 8px 18px;
 	border-radius: 20px;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+@media screen and (max-width: 520px) {
+	:root {
+		font-size: 14px;
+	}
 }
