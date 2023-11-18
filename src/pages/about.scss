@@ -149,3 +149,61 @@
 		}
 	}
 }
+
+#contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.contacts {
+		max-width: 865px;
+		padding: 40px;
+		margin: 0 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 40px;
+
+		> svg {
+			z-index: -1;
+		}
+
+		.svg-bottom {
+			bottom: -50px;
+			left: -60px;
+		}
+
+		.svg-top {
+			top: -35px;
+			right: -50px;
+		}
+
+		div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			min-width: 200px;
+			gap: 20px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.contacts {
+			padding: 40px 20px;
+
+			> svg {
+				max-width: 80px;
+			}
+
+			.svg-bottom {
+				left: -30px;
+			}
+
+			.svg-top {
+				right: -30px;
+			}
+		}
+	}
+}
