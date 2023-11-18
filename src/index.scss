@@ -54,6 +54,35 @@ a {
 	border-radius: 20px;
 }
 
+.h2 {
+	font-size: 1.8rem;
+	font-family: var(--title);
+	position: relative;
+	display: inline-block;
+	margin-bottom: 50px;
+
+	&::after {
+		content: url("./assets/images/underline.svg");
+		position: absolute;
+		bottom: -35px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.tags {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+
+	li {
+		background-color: var(--primary);
+		padding: 2px 8px;
+		border-radius: 8px;
+	}
+}
+
 .relative {
 	position: relative;
 }
