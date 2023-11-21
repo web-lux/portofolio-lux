@@ -3,7 +3,7 @@ import "./footer.scss"
 function Footer() {
     return (
         <footer>
-            <p>Copyright © web-lux 2023</p>
+            Copyright © web-lux 2023
         </footer>
     )
 }
