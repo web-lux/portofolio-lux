@@ -5,10 +5,9 @@ function Header() {
         <header>
             <nav>
                 <ul>
-                    <li><a href="">Compétences</a></li>
-                    <li><a href="">Portofolio</a></li>
-                    <li><a href="">Parcours</a></li>
-                    <li><a href="" className='btn'>Me contacter</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#portofolio">Portofolio</a></li>
+                    <li><a href="#contact" className='btn'>Me contacter</a></li>
                 </ul>
             </nav>
         </header>
