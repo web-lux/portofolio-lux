@@ -1,3 +1,5 @@
+import "./portofolio.scss"
+
 export default function Portofolio() {
 	return (
 		<section id="portofolio">

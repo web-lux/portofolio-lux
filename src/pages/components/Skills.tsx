@@ -1,3 +1,4 @@
+import "./skills.scss"
 import { skills } from "../../assets/contents/skills";
 
 interface SkillProp {

@@ -1,4 +1,4 @@
-import cat from "../../assets/images/chat-gris.svg";
+import "./hero.scss"
 
 export default function Hero() {
 	return (
@@ -63,7 +63,7 @@ export default function Hero() {
 
 			<div className="img">
 				<img
-					src={cat}
+					src="/cat.svg"
 					alt="Un chat gris allongé devant un écran d'ordinateur"
 				/>
 			</div>
