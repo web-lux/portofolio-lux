@@ -1,13 +1,14 @@
 import './header.scss'
+import { HashLink as Link } from 'react-router-hash-link'
 
 function Header() {
     return (
         <header>
             <nav>
                 <ul>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#portofolio">Portofolio</a></li>
-                    <li><a href="#contact" className='btn'>Me contacter</a></li>
+                    <li><Link to="/#skills">Compétences</Link></li>
+                    <li><Link to="/#portofolio">Portofolio</Link></li>
+                    <li><Link to="/#contact" className='btn'>Me contacter</Link></li>
                 </ul>
             </nav>
         </header>
