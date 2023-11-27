@@ -16,7 +16,11 @@ function Router() {
               element: <About />
             },
             {
-              path: "/projects/:name", element: <Project />
+              path: "/projects/:id", element: <Project />
+            },
+            {
+              path: "/404",
+              element: <NotFound />
             },
             {
               // handle user manually writing bad URL
