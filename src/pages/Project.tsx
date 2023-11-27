@@ -1,72 +1,163 @@
-import { Link } from "react-router-dom";
-import "./Projects.scss"
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import getProject from "../assets/contents/projects";
+import "./Project.scss";
 
-function Project() {
+interface projectInterface {
+	name: string;
+	id: string;
+	previewText: string;
+	previewImage: string;
+	image: string;
+	description: string;
+	tools: string[];
+	workCategory: {
+		title: string;
+		works: {
+			name: string;
+			url: string;
+		}[];
+	}[];
+}
+
+interface workCategoryInterface {
+	title: string;
+	works: {
+		name: string;
+		url: string;
+	}[];
+}
+
+function getIcon(tools: string) {
+	switch (tools) {
+		case "Figma":
+			return (
+				<svg
+					width="24"
+					height="36"
+					viewBox="0 0 24 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M5.88924 0H11.7549V11.667H5.88931C-1.84605 11.3662 -1.92418 0.315844 5.88924 0ZM5.88924 23.8329H11.7549V12.166H5.88931C-1.92411 12.4818 -1.84598 23.5322 5.88931 23.8329H5.88924ZM18.1224 0H12.2566V11.667H18.1224C25.9618 11.2497 25.8641 0.238148 18.1224 0ZM11.7549 30.1655V24.3319H5.88931C1.10273 24.3319 -1.92411 29.913 1.40484 33.9217C4.57873 37.895 11.7549 35.9141 11.7549 30.1655H11.7549ZM24 17.9994C24 13.5163 19.0864 10.6992 15.1769 12.9408C11.2674 15.1824 11.2673 20.8166 15.1769 23.0581C19.0865 25.2997 24 22.4826 24 17.9994Z"
+						fill="#D3D6DF"
+					/>
+				</svg>
+			);
+		case "Photoshop":
+			return (
+				<svg
+					width="36"
+					height="36"
+					viewBox="0 0 36 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M14.775 12.18C14.22 11.955 13.62 11.865 13.005 11.88C12.615 11.88 12.27 11.88 11.985 11.895C11.685 11.88 11.475 11.895 11.37 11.91V16.95C11.58 16.965 11.775 16.98 11.955 16.98H12.75C13.335 16.98 13.92 16.89 14.475 16.71C14.955 16.575 15.375 16.29 15.705 15.915C16.02 15.54 16.17 15.03 16.17 14.37C16.185 13.905 16.065 13.44 15.825 13.035C15.5749 12.6455 15.2071 12.346 14.775 12.18ZM29.625 0H6.375C2.85 0 0 2.85 0 6.375V28.7235C0 32.2485 2.85 35.0985 6.375 35.0985H29.625C33.15 35.0985 36 32.2485 36 28.7235V6.375C36 2.85 33.15 0 29.625 0ZM18.5385 17.475C17.94 18.315 17.1 18.945 16.125 19.305C15.105 19.68 13.98 19.815 12.75 19.815C12.39 19.815 12.15 19.815 12 19.8C11.85 19.785 11.64 19.785 11.355 19.785V24.5985C11.37 24.7035 11.295 24.795 11.19 24.81H8.28C8.16 24.81 8.1 24.7485 8.1 24.6135V9.18C8.1 9.075 8.145 9.015 8.25 9.015C8.505 9.015 8.745 9.015 9.09 9C9.45 8.985 9.825 8.985 10.23 8.97C10.635 8.955 11.07 8.955 11.535 8.94C12 8.925 12.45 8.925 12.9 8.925C14.13 8.925 15.15 9.075 15.99 9.39C16.74 9.645 17.43 10.065 18 10.62C18.48 11.1 18.855 11.685 19.095 12.33C19.3185 12.96 19.4385 13.605 19.4385 14.28C19.44 15.57 19.14 16.635 18.5385 17.475ZM29.175 23.31C28.755 23.91 28.1685 24.3735 27.495 24.6465C26.76 24.96 25.86 25.1235 24.7785 25.1235C24.09 25.1235 23.4135 25.065 22.74 24.93C22.215 24.8385 21.69 24.675 21.21 24.45C21.105 24.3915 21.0285 24.2865 21.0435 24.1665V21.5565C21.0435 21.513 21.06 21.4515 21.105 21.4215C21.1485 21.3915 21.195 21.4065 21.24 21.4365C21.825 21.7815 22.44 22.023 23.1 22.1715C23.6685 22.3215 24.2685 22.3965 24.87 22.3965C25.44 22.3965 25.845 22.32 26.115 22.185C26.355 22.08 26.52 21.825 26.52 21.555C26.52 21.3435 26.4 21.15 26.16 20.955C25.92 20.7615 25.4265 20.5365 24.6915 20.2485C23.9265 19.9785 23.223 19.6185 22.5615 19.17C22.0921 18.8338 21.7024 18.3985 21.42 17.895C21.1816 17.4204 21.0636 16.8944 21.0765 16.3635C21.0765 15.7185 21.2565 15.1035 21.588 14.5485C21.963 13.9485 22.5165 13.4685 23.1615 13.1685C23.865 12.81 24.75 12.645 25.815 12.645C26.43 12.645 27.06 12.69 27.675 12.78C28.125 12.84 28.56 12.96 28.965 13.125C29.0235 13.14 29.085 13.2 29.115 13.26C29.13 13.32 29.145 13.38 29.145 13.44V15.885C29.145 15.945 29.115 16.005 29.07 16.035C28.935 16.065 28.86 16.065 28.8 16.035C28.35 15.795 27.87 15.63 27.36 15.525C26.805 15.405 26.25 15.33 25.68 15.33C25.38 15.315 25.065 15.36 24.7785 15.435C24.585 15.48 24.4185 15.585 24.3135 15.735C24.2385 15.855 24.1935 16.005 24.1935 16.14C24.1935 16.275 24.2535 16.41 24.345 16.53C24.48 16.695 24.6585 16.83 24.855 16.935C25.1985 17.115 25.56 17.28 25.9185 17.43C26.73 17.7 27.51 18.075 28.23 18.525C28.725 18.8385 29.13 19.26 29.4135 19.77C29.6535 20.247 29.7735 20.775 29.7585 21.3135C29.775 22.02 29.565 22.7235 29.175 23.31Z"
+						fill="#D3D6DF"
+					/>
+				</svg>
+			);
+		case "Illustator":
+			return (
+				<svg
+					width="36"
+					height="36"
+					viewBox="0 0 36 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M15.795 15.645C15.645 15.18 15.51 14.73 15.36 14.265C15.21 13.8 15.075 13.365 14.955 12.93C14.835 12.51 14.73 12.12 14.625 11.76H14.595C14.46 12.405 14.295 13.05 14.085 13.695C13.86 14.415 13.635 15.165 13.395 15.915C13.185 16.68 12.96 17.385 12.735 18.015H16.545C16.455 17.6985 16.335 17.325 16.2 16.9335C16.065 16.53 15.93 16.095 15.795 15.645ZM29.625 0H6.375C2.85 0 0 2.85 0 6.375V28.725C0 32.25 2.85 35.1 6.375 35.1H29.625C33.15 35.1 36 32.25 36 28.725V6.375C36 2.85 33.15 0 29.625 0ZM22.05 24.795H18.9135C18.81 24.81 18.705 24.735 18.675 24.63L17.445 21.06H11.865L10.725 24.585C10.695 24.72 10.575 24.81 10.44 24.7965H7.62C7.455 24.7965 7.41 24.705 7.455 24.5265L12.285 10.62C12.33 10.47 12.375 10.305 12.435 10.125C12.495 9.81 12.525 9.48 12.525 9.15C12.51 9.075 12.57 9 12.645 8.985H16.53C16.65 8.985 16.71 9.03 16.725 9.105L22.2 24.555C22.245 24.7185 22.2 24.795 22.05 24.795ZM27.15 24.57C27.15 24.735 27.0915 24.81 26.9565 24.81H24.015C23.865 24.81 23.79 24.7185 23.79 24.57V13.02C23.79 12.87 23.8515 12.81 23.9865 12.81H26.9565C27.0915 12.81 27.15 12.885 27.15 13.02V24.57ZM26.8365 11.025C26.6594 11.2049 26.4458 11.3448 26.2101 11.4354C25.9744 11.5259 25.722 11.565 25.47 11.55C24.975 11.565 24.495 11.37 24.1335 11.025C23.7898 10.6492 23.6068 10.1539 23.6235 9.645C23.6085 9.135 23.8035 8.655 24.162 8.31C24.525 7.965 25.005 7.785 25.5 7.785C26.0865 7.785 26.5335 7.965 26.865 8.31C27.195 8.67 27.375 9.15 27.36 9.645C27.375 10.155 27.195 10.65 26.8365 11.025Z"
+						fill="#D3D6DF"
+					/>
+				</svg>
+			);
+		case "Premiere Pro":
+			return (
+				<svg
+					width="36"
+					height="36"
+					viewBox="0 0 36 36"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M15.225 12.18C14.6619 11.9593 14.0594 11.8572 13.455 11.88C12.9098 11.8686 12.3644 11.8786 11.82 11.91V16.95L12.405 16.98H13.2C13.785 16.98 14.37 16.89 14.925 16.71C15.405 16.575 15.825 16.29 16.155 15.915C16.47 15.54 16.62 15.03 16.62 14.37C16.6539 13.9035 16.5364 13.4385 16.2852 13.044C16.0339 12.6495 15.6621 12.3465 15.225 12.18ZM29.625 0H6.375C4.68425 0 3.06274 0.67165 1.86719 1.86719C0.67165 3.06274 0 4.68425 0 6.375L0 28.725C0 32.25 2.85 35.1 6.375 35.1H29.625C33.15 35.1 36 32.25 36 28.725V6.375C36 2.85 33.15 0 29.625 0ZM18.99 17.475C18.39 18.315 17.55 18.945 16.575 19.305C15.555 19.68 14.43 19.815 13.2 19.815L12.45 19.8L11.805 19.785V24.6C11.8093 24.6248 11.8083 24.6502 11.8021 24.6746C11.7959 24.699 11.7847 24.7218 11.7691 24.7416C11.7536 24.7614 11.7341 24.7777 11.7118 24.7895C11.6896 24.8013 11.6651 24.8083 11.64 24.81H8.73C8.61 24.81 8.55 24.75 8.55 24.615V9.18C8.55 9.075 8.595 9.015 8.7 9.015L9.54 9L10.68 8.97L11.985 8.94L13.35 8.925C14.58 8.925 15.6 9.075 16.44 9.39C17.19 9.645 17.88 10.065 18.45 10.62C18.93 11.1 19.305 11.685 19.545 12.33C19.77 12.96 19.89 13.605 19.89 14.28C19.89 15.57 19.59 16.635 18.99 17.475ZM29.22 12.75V15.675C29.22 15.795 29.145 15.84 28.98 15.84C27.9903 15.804 27.0054 15.9938 26.1 16.395C25.815 16.53 25.545 16.71 25.335 16.95V24.6C25.335 24.75 25.275 24.81 25.14 24.81H22.185C22.1574 24.8142 22.1292 24.8129 22.1021 24.8061C22.075 24.7993 22.0495 24.7872 22.0272 24.7704C22.0048 24.7537 21.986 24.7326 21.9719 24.7085C21.9578 24.6844 21.9487 24.6577 21.945 24.63V16.26L21.93 15.135L21.9 13.965C21.9 13.62 21.87 13.29 21.84 12.945C21.8349 12.9095 21.8426 12.8733 21.8619 12.843C21.8812 12.8128 21.9107 12.7904 21.945 12.78H24.615C24.765 12.78 24.885 12.885 24.915 13.02C25.0506 13.4672 25.1163 13.9327 25.11 14.4C25.56 13.875 26.115 13.44 26.73 13.11C27.4272 12.7227 28.2124 12.5212 29.01 12.525C29.115 12.51 29.205 12.585 29.22 12.69V12.75Z"
+						fill="#D3D6DF"
+					/>
+				</svg>
+			);
+	}
+}
+
+function WorkCategory({ title, works }: workCategoryInterface) {
+	const workList = works.map((work) => {
+		return (
+			<li className="btn">
+				<Link to={work.url}>{work.name}</Link>
+			</li>
+		);
+	});
+
 	return (
-        <main id="project">
-            
-			<div className="img shadow">
-				<img src="/alliance.jpg" alt="" />
-            </div>
-            
-			<div className="header">
-				<h1>Run'Zik</h1>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque
-					lobortis enim sit arcu volutpat nullam orci et nunc. Nibh facilisis
-					aliquet mauris diam. Donec arcu tincidunt scelerisque tincidunt
-					convallis vitae. Tempus tempus rhoncus lacinia id. Massa nunc nibh
-					viverra aliquet vitae, gravida vulputate. Pellentesque volutpat quam
-					et nunc, elementum in scelerisque. Et pharetra blandit massa
-					adipiscing interdum nibh amet. Lorem ipsum dolor sit amet, consectetur
-					adipiscing elit. Scelerisque lobortis enim sit arcu volutpat nullam
-					orci et nunc. Nibh facilisis aliquet mauris diam. Donec arcu tincidunt
-					scelerisque tincidunt convallis vitae. Tempus tempus rhoncus lacinia
-					id. Massa nunc nibh viverra aliquet vitae, gravida vulputate.
-					Pellentesque volutpat quam et nunc, elementum in scelerisque. Et
-					pharetra blandit massa adipiscing interdum nibh amet.
-				</p>
-            </div>
-            
-            <div className="tools shadow">
-                <h2 className="h2">Outils utilisés</h2>
-                <ul>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>Figma</li>
-                </ul>
-            </div>
-
-            <div className="showcase">
-            <div>
-                    <h2>Recherche</h2>
-                    <ul>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2>Recherche</h2>
-                    <ul>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2>Recherche</h2>
-                    <ul>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                        <li className="btn"><Link to="/">Moodboard</Link></li>
-                    </ul>
-                </div>
-            </div>
-		</main>
+		<div>
+			<h2>{title}</h2>
+			<ul>{workList}</ul>
+		</div>
 	);
 }
 
-export default Project;
+export default function Project() {
+	const navigate = useNavigate();
+	const { id } = useParams();
+	const [project, setProject] = useState<projectInterface | null>(null);
+
+	useEffect(() => {
+		if (id) {
+			const project = getProject(id);
+			if (project === null) {
+				navigate("/404");
+			} else {
+				setProject(project);
+			}
+		}
+	});
+
+	const workCategories = project?.workCategory.map((category) => {
+		return <WorkCategory title={category.title} works={category.works} />;
+	});
+
+	const tools = project?.tools.map((tool) => {
+		return (
+			<li>
+				{getIcon(tool)}
+				<span>{tool}</span>
+			</li>
+		)
+	})
+
+	return (
+		<main id="project">
+			<div className="img shadow">
+				<img src={project?.image} alt="" />
+			</div>
+
+			<div className="header">
+				<h1>{project?.name}</h1>
+				<p>{project?.description}</p>
+			</div>
+
+			<div className="tools shadow">
+				<h2 className="h2">Outils utilisés</h2>
+				<ul>
+					{tools}
+				</ul>
+			</div>
+
+			<div className="showcase">{workCategories}</div>
+		</main>
+	);
+}

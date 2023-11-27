@@ -1,100 +1,47 @@
-import "./portofolio.scss"
+import "./portofolio.scss";
+import { projects } from "../../assets/contents/projects";
+import { Link } from "react-router-dom";
+
+interface projectProps {
+	name: string;
+	previewText: string;
+	previewImage: string;
+	id: string;
+}
+
+function Project({ name, previewText, previewImage, id }: projectProps) {
+	return (
+		<div className="project">
+			<div className="img shadow">
+				<img src={previewImage} alt="" />
+			</div>
+			<div className="header">
+				<h3>{name}</h3>
+				<p>{previewText}</p>
+				<Link to={`/projects/${id}`} className="btn">
+					En savoir plus
+				</Link>
+			</div>
+		</div>
+	);
+}
 
 export default function Portofolio() {
+	const projectsList = projects.map((project) => {
+		return (
+			<Project
+				name={project.name}
+				previewText={project.previewText}
+				previewImage={project.previewImage}
+				id={project.id}
+			/>
+		);
+	});
+
 	return (
 		<section id="portofolio">
 			<h2 className="h2">Mon portofolio</h2>
-			<div className="projects">
-				<div className="project">
-					<div className="img shadow">
-						<img src="/runzik.jpg" alt="" />
-					</div>
-					<div className="header">
-						<h3>Run'Zik</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-							molestias laudantium natus earum repudiandae libero ea debitis
-							possimus. Ex cupiditate officiis minima neque vel modi corrupti
-							illo distinctio, perspiciatis delectus?
-						</p>
-						<a href="" className="btn">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-
-				<div className="project">
-					<div className="img shadow">
-						<img src="/alliance.jpg" alt="" />
-					</div>
-					<div className="header">
-						<h3>Run'Zik</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-							molestias laudantium natus earum repudiandae libero ea debitis
-							possimus. Ex cupiditate officiis minima neque vel modi corrupti
-							illo distinctio, perspiciatis delectus?
-						</p>
-						<a href="" className="btn">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-
-				<div className="project">
-					<div className="img shadow">
-						<img src="/api-connect.jpg" alt="" />
-					</div>
-					<div className="header">
-						<h3>Run'Zik</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-							molestias laudantium natus earum repudiandae libero ea debitis
-							possimus. Ex cupiditate officiis minima neque vel modi corrupti
-							illo distinctio, perspiciatis delectus?
-						</p>
-						<a href="" className="btn">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-
-				<div className="project">
-					<div className="img shadow">
-						<img src="/indiescape.jpg" alt="" />
-					</div>
-					<div className="header">
-						<h3>Run'Zik</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-							molestias laudantium natus earum repudiandae libero ea debitis
-							possimus. Ex cupiditate officiis minima neque vel modi corrupti
-							illo distinctio, perspiciatis delectus?
-						</p>
-						<a href="" className="btn">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-
-				<div className="project">
-					<div className="img shadow" >
-						<img src="/mecaconnect.jpg" alt="" />
-					</div>
-					<div className="header">
-						<h3>Run'Zik</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-							molestias laudantium natus earum repudiandae libero ea debitis
-							possimus. Ex cupiditate officiis minima neque vel modi corrupti
-							illo distinctio, perspiciatis delectus?
-						</p>
-						<a href="" className="btn">
-							En savoir plus
-						</a>
-					</div>
-				</div>
-			</div>
+			<div className="projects">{projectsList}</div>
 		</section>
 	);
 }
