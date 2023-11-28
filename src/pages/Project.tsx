@@ -97,7 +97,7 @@ function WorkCategory({ title, works }: workCategoryInterface) {
 	const workList = works.map((work) => {
 		return (
 			<li className="btn">
-				<Link to={work.url}>{work.name}</Link>
+				<a href={work.url} target="_blank">{work.name}</a>
 			</li>
 		);
 	});
