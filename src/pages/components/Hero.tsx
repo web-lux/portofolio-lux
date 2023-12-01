@@ -33,7 +33,7 @@ export default function Hero() {
 				</div>
 
 				<div className="links">
-					<a href="">Découvrir mon CV</a>
+					<a href="" className='underline'>Découvrir mon CV</a>
 					<div className="relative">
 						<a className="btn">Entrez en contact</a>
 						<svg

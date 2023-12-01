@@ -6,8 +6,8 @@ function Header() {
         <header>
             <nav>
                 <ul>
-                    <li><Link to="/#skills">Compétences</Link></li>
-                    <li><Link to="/#portofolio">Portofolio</Link></li>
+                    <li><Link to="/#skills" className='underline'>Compétences</Link></li>
+                    <li><Link to="/#portofolio" className='underline'>Portofolio</Link></li>
                     <li><Link to="/#contact" className='btn'>Me contacter</Link></li>
                 </ul>
             </nav>

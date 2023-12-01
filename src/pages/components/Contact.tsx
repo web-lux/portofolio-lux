@@ -22,7 +22,7 @@ export default function Contact() {
 							strokeLinejoin="round"
 						/>
 					</svg>
-					<a href="mailto:melissa.fekir@outlook.fr">melissa.fekir@outlook.fr</a>
+					<a href="mailto:melissa.fekir@outlook.fr" className='underline'>melissa.fekir@outlook.fr</a>
 				</div>
 
 				<div>
@@ -38,7 +38,7 @@ export default function Contact() {
 							fill="var(--tertiary)"
 						/>
 					</svg>
-					<a href="https://github.com/web-lux">@web-lux</a>
+					<a href="https://github.com/web-lux" className='underline'>@web-lux</a>
 				</div>
 
 				<div>
@@ -54,7 +54,7 @@ export default function Contact() {
 							fill="var(--tertiary)"
 						/>
 					</svg>
-					<a href="https://www.linkedin.com/in/melissa-fekir/">melissa-fekir</a>
+					<a href="https://www.linkedin.com/in/melissa-fekir/" className='underline'>melissa-fekir</a>
 				</div>
 
 				<svg
