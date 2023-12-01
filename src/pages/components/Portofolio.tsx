@@ -1,6 +1,7 @@
 import "./portofolio.scss";
 import { projects } from "../../assets/contents/projects";
 import { Link } from "react-router-dom";
+import Toggle from "./Toggle";
 
 interface projectProps {
 	name: string;
@@ -41,6 +42,7 @@ export default function Portofolio() {
 	return (
 		<section id="portofolio">
 			<h2 className="h2">Mon portofolio</h2>
+			<Toggle />
 			<div className="projects">{projectsList}</div>
 		</section>
 	);

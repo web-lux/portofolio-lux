@@ -1,0 +1,84 @@
+.toggle {
+	--button-size: 50px;
+	width: calc(var(--button-size) * 2);
+	height: var(--button-size);
+	border-radius: var(--button-size);
+	padding: 4px;
+	border: 2px solid var(--primary);
+	box-sizing: content-box;
+	margin-bottom: 40px;
+
+	button,
+	svg {
+		animation-duration: 1s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
+	}
+
+	button.forward {
+		animation-name: toggle-forward;
+
+		svg {
+			animation-name: go-up;
+		}
+	}
+
+	button.backward {
+		animation-name: toggle-backward;
+
+		svg {
+			animation-name: go-down;
+		}
+	}
+
+	button {
+		height: var(--button-size);
+		width: var(--button-size);
+		border-radius: 50%;
+		border: var(--primary) solid 2px;
+		padding: 0 10px;
+		overflow: hidden;
+
+		svg {
+			height: 100%;
+			max-width: 100%;
+			position: relative;
+		}
+	}
+}
+
+@keyframes go-up {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-105%);
+	}
+}
+
+@keyframes go-down {
+	from {
+		transform: translateY(-105%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes toggle-forward {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes toggle-backward {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
