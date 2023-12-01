@@ -1,17 +1,16 @@
 import { useState } from "react";
 import "./toggle.scss";
 
-export default function Toggle() {
+export default function Toggle({updateRelevantSkill}: {updateRelevantSkill: () => void}) {
 	const [animation, setAnimation] = useState<undefined | string>(undefined);
 
 	function handleClick() {
-		if (animation === undefined) {
-			setAnimation("forward")
-		} else if (animation === "forward") {
+		if (animation === "forward") {
 			setAnimation("backward")
 		} else {
 			setAnimation("forward")
 		}
+		updateRelevantSkill();
 	}
 
 	return (
