@@ -8,7 +8,6 @@ interface projectInterface {
 	id: string;
 	previewText: string;
 	previewImage: string;
-	image: string;
 	description: string;
 	tools: string[];
 	workCategory: {
