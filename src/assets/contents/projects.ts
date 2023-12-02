@@ -15,11 +15,11 @@ export const projects = [
 				works: [
 					{
 						name: "Moodboard",
-						url: "/alliance.jpg",
+						url: "/projects/run-zik-moodboard.jpg",
 					},
 					{
 						name: "Propositions de logo",
-						url: "/run-zik-proposition-de-logo.pdf",
+						url: "/projects/run-zik-proposition-de-logo.pdf",
 					},
 				],
 			},
@@ -37,19 +37,19 @@ export const projects = [
 				works: [
 					{
 						name: "Charte graphique",
-						url: "/run-zik-charte-graphique.pdf",
+						url: "/projects/run-zik-charte-graphique.pdf",
 					},
 					{
 						name: "Flyer A5",
-						url: "/run-zik-flyer-A5.pdf",
+						url: "/projects/run-zik-flyer-A5.pdf",
 					},
 					{
 						name: "Affiche A3",
-						url: "/run-zik-affiche-A3.pdf",
+						url: "/projects/run-zik-affiche-A3.pdf",
 					},
 					{
 						name: "Bannière réseaux sociaux",
-						url: "/run-zik-banniere-reseaux.jpg",
+						url: "/projects/run-zik-banniere-reseaux.jpg",
 					},
 				],
 			},
@@ -69,7 +69,7 @@ export const projects = [
 				works: [
 					{
 						name: "Moodboard",
-						url: "/alliance-digital-moodboard.jpg",
+						url: "/projects/alliance-digital-moodboard.jpg",
 					},
 				],
 			},
@@ -98,11 +98,11 @@ export const projects = [
 				works: [
 					{
 						name: "Moodboard",
-						url: "/api-connect-moodboard.jpg",
+						url: "/projects/api-connect-moodboard.jpg",
 					},
 					{
 						name: "Propositions de logo",
-						url: "/api-connect-propositions-de-logo.pdf",
+						url: "/projects/api-connect-propositions-de-logo.pdf",
 					},
 				],
 			},
@@ -120,11 +120,11 @@ export const projects = [
 				works: [
 					{
 						name: "Mockup de produit",
-						url: "/api-connect-mockup.jpg",
+						url: "/projects/api-connect-mockup.jpg",
 					},
 					{
 						name: "Carte de visite",
-						url: "/api-connect-carte-visite.pdf",
+						url: "/projects/api-connect-carte-visite.pdf",
 					},
 				],
 			},
@@ -144,11 +144,11 @@ export const projects = [
 				works: [
 					{
 						name: "Moodboard",
-						url: "/indiescape-moodboard.pdf",
+						url: "/projects/indiescape-moodboard.pdf",
 					},
 					{
 						name: "Logo",
-						url: "/indiescape-logo.png",
+						url: "/projects/indiescape-logo.png",
 					},
 				],
 			},
@@ -174,19 +174,19 @@ export const projects = [
 				works: [
 					{
 						name: "Charte graphique",
-						url: "/indiescape-charte-graphique.pdf",
+						url: "/projects/indiescape-charte-graphique.pdf",
 					},
 					{
 						name: "Affiches",
-						url: "/indiescape-affiche.pdf",
+						url: "/projects/indiescape-affiche.pdf",
 					},
 					{
 						name: "Bannière réseaux sociaux",
-						url: "/indiescape-bannière.jpg",
+						url: "/projects/indiescape-bannière.jpg",
 					},
 					{
 						name: "Teaser",
-						url: "/indiescape-teaser.mp4",
+						url: "/projects/indiescape-teaser.mp4",
 					},
 				],
 			},
@@ -206,7 +206,7 @@ export const projects = [
 				works: [
 					{
 						name: "Moodboard",
-						url: "/mecaconnect-moodboard.jpg",
+						url: "/projects/mecaconnect-moodboard.jpg",
 					},
 				],
 			},
