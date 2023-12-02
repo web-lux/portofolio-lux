@@ -123,7 +123,7 @@ export default function Project() {
 				setProject(project);
 			}
 		}
-	});
+	}, []);
 
 	const workCategories = project?.workCategory.map((category, index) => {
 		return <WorkCategory title={category.title} works={category.works} key={index}/>;
