@@ -5,11 +5,10 @@ export const projects = [
 		skillset: "design",
 		previewText: `Projet de formation pour une marque d'équipements sportifs dont le produit phare est un casque audio à conduction osseuse.`,
 		previewImage: `/runzik.jpg`,
-		image: `/projects/run-zik-logo.png`,
 		description: `Run'Zik est une entreprise fictive dont nous devions réaliser le site internet, les supports de communication, et plus généralement toute la charte graphique, à des fins d'apprentissage dans le cadre de ma formation webdesign UX.
 		
 		Il s'agissait donc d'une marque d'équipements destinés aux sportifs, qui souhaitait un site à la fois vitrine et e-commerce pour vendre ses trois articles : Un casque à conduction osseuse, une montre connectée et un brassard sportif. L'entreprise ne possédant aucune identité graphique, nous devions nous appuyer sur ses valeurs, établies lors d'un entretien avec les clients incarnés par nos formateurs, pour en créer une en accord avec leur vision.`,
-		tools: ["Photoshop", "Illustator", "Figma"],
+		tools: ["Photoshop", "Illustator", "Figma", "Premiere Pro"],
 		workCategory: [
 			{
 				title: "Recherche",
@@ -18,28 +17,205 @@ export const projects = [
 						name: "Moodboard",
 						url: "/alliance.jpg",
 					},
+					{
+						name: "Propositions de logo",
+						url: "/run-zik-proposition-de-logo.pdf",
+					},
+				],
+			},
+			{
+				title: "Maquette",
+				works: [
+					{
+						name: "Maquette",
+						url: "https://www.figma.com/proto/R4cZfPENn527OnnlqC0iyh/Run'Zik?page-id=94%3A3678&node-id=94%3A4063&viewport=241%2C48%2C0.05&scaling=min-zoom&starting-point-node-id=94%3A4063",
+					},
+				],
+			},
+			{
+				title: "Support de communication",
+				works: [
+					{
+						name: "Charte graphique",
+						url: "/run-zik-charte-graphique.pdf",
+					},
+					{
+						name: "Flyer A5",
+						url: "/run-zik-flyer-A5.pdf",
+					},
+					{
+						name: "Affiche A3",
+						url: "/run-zik-affiche-A3.pdf",
+					},
+					{
+						name: "Bannière réseaux sociaux",
+						url: "/run-zik-banniere-reseaux.jpg",
+					},
 				],
 			},
 		],
 	},
 	{
-		name: `Portofolio`,
+		name: `Alliance Digital`,
 		id: `2`,
-		skillset: "dev",
-		previewText: `Projet de formation pour une marque d'équipements sportifs dont le produit phare est un casque audio à conduction osseuse.`,
-		previewImage: `/runzik.jpg`,
-		image: `/projects/run-zik-logo.png`,
-		description: `Run'Zik est une entreprise fictive dont nous devions réaliser le site internet, les supports de communication, et plus généralement toute la charte graphique, à des fins d'apprentissage dans le cadre de ma formation webdesign UX.
-		
-		Il s'agissait donc d'une marque d'équipements destinés aux sportifs, qui souhaitait un site à la fois vitrine et e-commerce pour vendre ses trois articles : Un casque à conduction osseuse, une montre connectée et un brassard sportif. L'entreprise ne possédant aucune identité graphique, nous devions nous appuyer sur ses valeurs, établies lors d'un entretien avec les clients incarnés par nos formateurs, pour en créer une en accord avec leur vision.`,
-		tools: ["Photoshop", "Illustator", "Figma"],
+		skillset: "design",
+		previewText: `Proposition de design pour Alliance Digital, une entreprise spécialisée dans l'informatique située à la nouvelle forge de Valenciennes.`,
+		previewImage: `/alliance.jpg`,
+		description: `Création d'un site internet pour Alliance digital, une entreprise d'informatique située à la Nouvelle Forge de Valenciennes, suite à sa fusion récente avec une autre entreprise du même domaine d'expertise. Alliance digital possédant déjà sa charte graphique, dont son logo, ainsi qu'une arborescence définie par ses créateurs, l'impératif était de s'appuyer sur celle-ci pour créer un design cohérent avec le reste de son identité, tout en restant attractif et moderne.`,
+		tools: ["Figma"],
 		workCategory: [
 			{
 				title: "Recherche",
 				works: [
 					{
 						name: "Moodboard",
-						url: "/alliance.jpg",
+						url: "/alliance-digital-moodboard.jpg",
+					},
+				],
+			},
+			{
+				title: "Maquette",
+				works: [
+					{
+						name: "Maquette",
+						url: "https://www.figma.com/proto/BnvzNewAW1KkgCOBSbc9ay/Alliance-Digital?page-id=154%3A1231&node-id=154%3A1247&viewport=241%2C48%2C0.08&scaling=min-zoom&starting-point-node-id=154%3A1247&show-proto-sidebar=1",
+					},
+				],
+			},
+		],
+	},
+	{
+		name: `Api Connect`,
+		id: `3`,
+		skillset: "design",
+		previewText: `Élaboration de l'identité visuelle et du site internet d'une entreprise d'apiculteurs utilisant des ruches connectées.`,
+		previewImage: `/api-connect.jpg`,
+		description: `Api Connect est l'entreprise fictive d'un groupe d'apiculteurs spécialisés dans le miel "connecté". Dans le cadre de la formation webdesign UX de Pop School, nous devions réaliser leur site internet, à la fois site vitrine et e-commerce, visant à offrir une platerforme où lesdits apiculteurs pourraient présenter le concept de leur marque et commercialiser leurs produits. Nous devions également, au préalable de tout ceci, imaginer leur identité graphique et leur logo puisque l'entreprise n'en possédait pas.`,
+		tools: ["Figma", "Illustator", "Photoshop"],
+		workCategory: [
+			{
+				title: "Recherche",
+				works: [
+					{
+						name: "Moodboard",
+						url: "/api-connect-moodboard.jpg",
+					},
+					{
+						name: "Propositions de logo",
+						url: "/api-connect-propositions-de-logo.pdf",
+					},
+				],
+			},
+			{
+				title: "Maquette",
+				works: [
+					{
+						name: "Maquette",
+						url: "https://www.figma.com/proto/ZUiTt06uZIoeLTnw69j6sN/Apicononnect?page-id=15%3A15&node-id=131-3587&viewport=241%2C48%2C0.11&scaling=min-zoom&starting-point-node-id=131%3A3587",
+					},
+				],
+			},
+			{
+				title: "Support de communication",
+				works: [
+					{
+						name: "Mockup de produit",
+						url: "/api-connect-mockup.jpg",
+					},
+					{
+						name: "Carte de visite",
+						url: "/api-connect-carte-visite.pdf",
+					},
+				],
+			},
+		],
+	},
+	{
+		name: `Indiescape`,
+		id: `4`,
+		skillset: "design",
+		previewText: `Projet de formation tournant autour d'un festival dont le thème musical et les artistes étaient laissés au choix.`,
+		previewImage: `/indiescape.jpg`,
+		description: `Ce projet de formation consistait à réaliser l'identité graphique, le site internet et les supports de communication de la première édition d'un festival de musique imaginaire. Le thème du festival et ses artistes étant laissés au choix de l'apprenant, j'ai choisi celui de la musique indépendante.`,
+		tools: ["Figma", "Illustator", "Photoshop", "Premiere Pro"],
+		workCategory: [
+			{
+				title: "Recherche",
+				works: [
+					{
+						name: "Moodboard",
+						url: "/indiescape-moodboard.pdf",
+					},
+					{
+						name: "Logo",
+						url: "/indiescape-logo.png",
+					},
+				],
+			},
+			{
+				title: "Maquette",
+				works: [
+					{
+						name: "Maquette",
+						url: "https://www.figma.com/proto/xQbU1F8jqnRxtuMcGUR63t/Indiescape?page-id=0%3A1&node-id=103%3A1313&viewport=241%2C48%2C0.09&scaling=scale-down-width&starting-point-node-id=103%3A1313",
+					},
+					{
+						name: "Maquette mobile",
+						url: "https://www.figma.com/proto/xQbU1F8jqnRxtuMcGUR63t/Indiescape?page-id=0%3A1&node-id=249%3A2927&viewport=241%2C48%2C0.09&scaling=scale-down-width&starting-point-node-id=249%3A2927",
+					},
+					{
+						name: "Application mobile",
+						url: "https://www.figma.com/proto/xQbU1F8jqnRxtuMcGUR63t/Indiescape?page-id=225%3A3680&node-id=271%3A1536&viewport=241%2C48%2C0.16&scaling=scale-down&starting-point-node-id=271%3A1536",
+					},
+				],
+			},
+			{
+				title: "Support de communication",
+				works: [
+					{
+						name: "Charte graphique",
+						url: "/indiescape-charte-graphique.pdf",
+					},
+					{
+						name: "Affiches",
+						url: "/indiescape-affiche.pdf",
+					},
+					{
+						name: "Bannière réseaux sociaux",
+						url: "/indiescape-bannière.jpg",
+					},
+					{
+						name: "Teaser",
+						url: "/indiescape-teaser.mp4",
+					},
+				],
+			},
+		],
+	},
+	{
+		name: `Mecaconnect`,
+		id: `5`,
+		skillset: "design",
+		previewText: `Projet pour l'entreprise Mecaconnect impliquant le design de son accueil et dashboard utilisateur.`,
+		previewImage: `/mecaconnect.jpg`,
+		description: `Un projet pour l'entreprise Mecaconnect consistant à réaliser le design de sa page d'accueil et de son dashboard utilisateur. Un stage pour designer le reste de son interface et se charger de son intégration m'a été proposé en duo avec un autre apprenant, mais j'ai choisi de me consacrer pleinement à mon stage à la mairie de Saint-Saulve.`,
+		tools: ["Figma", "Photoshop"],
+		workCategory: [
+			{
+				title: "Recherche",
+				works: [
+					{
+						name: "Moodboard",
+						url: "/mecaconnect-moodboard.jpg",
+					},
+				],
+			},
+			{
+				title: "Maquette",
+				works: [
+					{
+						name: "Maquette",
+						url: "https://www.figma.com/proto/NrtsVogi8IU7Sf0QnFLoKS/Mecaconnect?type=design&node-id=42-23&scaling=scale-down-width&page-id=0%3A1&starting-point-node-id=42%3A23&show-proto-sidebar=1",
 					},
 				],
 			},

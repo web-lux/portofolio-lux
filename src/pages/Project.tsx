@@ -142,7 +142,7 @@ export default function Project() {
 	return (
 		<main id="project">
 			<div className="img shadow">
-				<img src={project?.image} alt="" />
+				<img src={project?.previewImage} alt="" />
 			</div>
 
 			<div className="header">
