@@ -93,9 +93,9 @@ function getIcon(tools: string) {
 }
 
 function WorkCategory({ title, works }: workCategoryInterface) {
-	const workList = works.map((work) => {
+	const workList = works.map((work, index) => {
 		return (
-			<li className="btn">
+			<li className="btn" key={index}>
 				<a href={work.url} target="_blank">{work.name}</a>
 			</li>
 		);
@@ -125,13 +125,13 @@ export default function Project() {
 		}
 	});
 
-	const workCategories = project?.workCategory.map((category) => {
-		return <WorkCategory title={category.title} works={category.works} />;
+	const workCategories = project?.workCategory.map((category, index) => {
+		return <WorkCategory title={category.title} works={category.works} key={index}/>;
 	});
 
-	const tools = project?.tools.map((tool) => {
+	const tools = project?.tools.map((tool, index) => {
 		return (
-			<li>
+			<li key={index}>
 				{getIcon(tool)}
 				<span>{tool}</span>
 			</li>
