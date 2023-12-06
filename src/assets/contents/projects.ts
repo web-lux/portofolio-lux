@@ -221,6 +221,15 @@ export const projects = [
 			},
 		],
 	},
+	{
+		name: "Starforged Asset Workbench",
+		id: "6",
+		skillset: "dev",
+		previewText: "Lorem Ipsum",
+		previewImage: "/cat.svg",
+		github: "https://github.com/web-lux/starforged-asset-workbench",
+		deployment: "https://starforged-asset-workbench.vercel.app/",
+	},
 ];
 
 export default function getProject(id: string) {

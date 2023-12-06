@@ -9,9 +9,28 @@ interface projectProps {
 	previewText: string;
 	previewImage: string;
 	id: string;
+	skillset: string;
+	github?: string;
+	deployment?: string;
 }
 
-function Project({ name, previewText, previewImage, id }: projectProps) {
+function Project({ name, previewText, previewImage, id, skillset, github, deployment }: projectProps) {
+	function getLink(skillset:string) {
+		if (skillset === "dev") {
+			return (
+				<div className="links">
+					<a href={deployment} className="btn">Découvrir</a>
+					<a href={github} className="underline" target="_blank">Github</a>
+				</div>
+			)
+		}
+		else return (
+			<Link to={`/projects/${id}`} className="btn">
+				En savoir plus
+			</Link>
+		)
+	}
+		
 	return (
 		<div className="project">
 			<div className="img shadow">
@@ -20,9 +39,7 @@ function Project({ name, previewText, previewImage, id }: projectProps) {
 			<div className="header">
 				<h3>{name}</h3>
 				<p>{previewText}</p>
-				<Link to={`/projects/${id}`} className="btn">
-					En savoir plus
-				</Link>
+				{getLink(skillset)}
 			</div>
 		</div>
 	);
@@ -49,7 +66,10 @@ export default function Portofolio() {
 				previewText={project.previewText}
 				previewImage={project.previewImage}
 				id={project.id}
+				skillset={project.skillset}
 				key={project.id}
+				github={project.github}
+				deployment={project.deployment}
 			/>
 		);
 	});
