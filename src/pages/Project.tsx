@@ -6,6 +6,7 @@ import "./Project.scss";
 interface projectInterface {
 	name: string;
 	id: string;
+	skillset: string;
 	previewText: string;
 	previewImage: string;
 	description: string;
@@ -119,7 +120,8 @@ export default function Project() {
 			const project = getProject(id);
 			if (project === null) {
 				navigate("/404");
-			} else {
+			} else if (project.description /* check to avoid typescript (and build) error */
+				&& project.skillset === "design") {
 				setProject(project);
 			}
 		}
