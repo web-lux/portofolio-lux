@@ -30,6 +30,11 @@ function Project({ name, previewText, previewImage, id, skillset, github, deploy
 			</Link>
 		)
 	}
+
+	function getMarkup(string: string) {
+		const markup = { __html: string };
+		return <p dangerouslySetInnerHTML={markup}></p>
+	}
 		
 	return (
 		<div className="project">
@@ -38,7 +43,7 @@ function Project({ name, previewText, previewImage, id, skillset, github, deploy
 			</div>
 			<div className="header">
 				<h3>{name}</h3>
-				<p>{previewText}</p>
+				{getMarkup(previewText)}
 				{getLink(skillset)}
 			</div>
 		</div>
