@@ -266,6 +266,15 @@ export const projects = [
 		github: "https://github.com/web-lux/ecran-magique",
 		deployment: "https://web-lux.github.io/ecran-magique/",
 	},
+	{
+		name: "Lorem Memory",
+		id: "11",
+		skillset: "dev",
+		previewText: `Jeu de mémoire écrit en React avec un appel API pour obtenir les images des cartes à se remémorer.`,
+		previewImage: "/memory.jpg",
+		github: "https://github.com/web-lux/memory-card",
+		deployment: "https://memory-card-eosin.vercel.app/",
+	},
 ];
 
 export default function getProject(id: string) {
