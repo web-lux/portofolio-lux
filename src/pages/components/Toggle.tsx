@@ -1,21 +1,27 @@
 import { useState } from "react";
 import "./toggle.scss";
 
-export default function Toggle({updateRelevantSkill}: {updateRelevantSkill: () => void}) {
-	const [animation, setAnimation] = useState<undefined | string>(undefined);
+interface ToggleProps {
+	toggleRelevantSkill: () => void,
+	setFadeAnimation: (arg0 : "fade-out" | "fade-in") => void,
+	relevantSkill: string,
+}
+
+export default function Toggle({ toggleRelevantSkill, relevantSkill, setFadeAnimation }: ToggleProps) {
+	const [toggleAnimation, setToggleAnimation] = useState<null | string>(null);
 
 	function handleClick() {
-		if (animation === "forward") {
-			setAnimation("backward")
-		} else {
-			setAnimation("forward")
-		}
-		updateRelevantSkill();
-	}
+		setFadeAnimation("fade-out");
+		setToggleAnimation(relevantSkill === "dev" ? "forward" : "backward");
+		setTimeout(() => { 
+			toggleRelevantSkill();
+			setFadeAnimation("fade-in");
+		}, 1000);
+	};
 
 	return (
 		<div className="toggle">
-			<button onClick={handleClick} className={animation}>
+			<button onClick={handleClick} className={`${relevantSkill} ${toggleAnimation}`}>
 				<svg
 					width="90"
 					height="85"

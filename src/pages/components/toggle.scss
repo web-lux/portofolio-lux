@@ -47,6 +47,20 @@
 	}
 }
 
+button.design {
+	transform: translateX(100%);
+svg {
+	transform: translateY(-105%);
+}
+};
+
+button.dev {
+	transform: translateX(0);
+svg {
+	transform: translateX(0);
+}
+};
+
 @keyframes go-up {
 	from {
 		transform: translateY(0);

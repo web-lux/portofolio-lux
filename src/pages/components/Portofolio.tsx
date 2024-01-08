@@ -51,16 +51,14 @@ function Project({ name, previewText, previewImage, id, skillset, github, deploy
 }
 
 export default function Portofolio() {
-	const [relevantSkill, setRelevantSkill] = useState("dev");
-	const [animation, setAnimation] = useState<undefined | string>(undefined);
+	const [relevantSkill, setRelevantSkill] = useState(window.localStorage.getItem('relevantSkill') ?? "dev");
+	const [fadeAnimation, setFadeAnimation] = useState< null | string>(null);
 
-	function updateRelevantSkill() {
-	setAnimation("fade-out");
-	setTimeout(() => {
-		setRelevantSkill(relevantSkill === "dev" ? "design" : "dev");
-		setAnimation("fade-in")
-	}, 1000)
-	}
+	function toggleRelevantSkill() {
+		const nextSkill = relevantSkill === "dev" ? "design" : "dev";
+		setRelevantSkill(nextSkill);
+		window.localStorage.setItem('relevantSkill', nextSkill);
+	};
 
 	const relevantProjects = projects.filter((project) => project.skillset === relevantSkill);
 
@@ -82,8 +80,8 @@ export default function Portofolio() {
 	return (
 		<section id="portofolio">
 			<h2 className="h2">Mon portofolio</h2>
-			<Toggle updateRelevantSkill={updateRelevantSkill} />
-			<div className={`projects ${animation ? animation : ""}`}>{projectsList}</div>
+			<Toggle toggleRelevantSkill={toggleRelevantSkill} relevantSkill={relevantSkill} setFadeAnimation={setFadeAnimation} />
+			<div className={`projects ${fadeAnimation}`}>{projectsList}</div>
 		</section>
 	);
 }
