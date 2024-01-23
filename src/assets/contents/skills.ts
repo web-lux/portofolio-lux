@@ -18,6 +18,11 @@ export const skills = [
 			"Javascript",
 			"Typescript",
 			"React",
+			"Angular",
+			"VueJS",
+			"NodeJS",
+			"Express",
+			"Mongoose"
 		],
 		icon: "code",
 	},
