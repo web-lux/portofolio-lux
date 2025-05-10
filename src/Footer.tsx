@@ -1,11 +1,7 @@
-import "./footer.scss"
+import './footer.scss';
 
 function Footer() {
-    return (
-        <footer>
-            Copyright © web-lux 2023
-        </footer>
-    )
+    return <footer>Copyright © web-lux</footer>;
 }
 
-export default Footer
+export default Footer;
